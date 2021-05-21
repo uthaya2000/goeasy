@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>More Details</title>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@1,300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+        integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="/css/main.css">
+    <style>
+        #icon {
+            color: black;
+            font-size: 30px;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container d-flex">
+            <a class="navbar-brand" href="/">
+                <i id="icon" class='bx bx-cycling'></i>
+                Rental Cycle
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="/">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/scanner">Scan</a>
+                    </li>
+                    <% if(curuser.isAdmin){ %>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/generetor">Admin Controls</a>
+                        </li>
+                    <% } %>
+                    <li class="nav-item ml-auto">
+                        <a class="nav-link" href="/logout">logout</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="container mt-5">
+        <div class="row d-flex justify-content-center">
+            <div class="col-md-6">
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item list-group-item-secondary">
+                        <%= customer.username %>
+                    </li>
+                    <li class="list-group-item">
+                        <%= customer.phone %>
+                    </li>
+                    <li class="list-group-item">
+                        <%= customer.email %>
+                    </li>
+                    <li class="list-group-item">
+                        <%= customer.cycleid %>
+                    </li>
+                    <li class="list-group-item">Leave the Cycle on or Before 
+                        <% if(customer.islocked) {%> 
+                            <Strong>
+                                <%= customer.time %>
+                                <i class='bx bxs-badge-check' style="font-size: 20px; color: green;"></i>
+                            </Strong> 
+                        <% }else{ %> 
+                            <Strong>
+                                <%= customer.time %>
+                                <i class='bx bxs-error' style="font-size: 20px; color: red;"></i>
+                            </Strong>
+                        <% } %> 
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="row d-flex justify-content-center">
+            <form action="/delete/<%= customer._id %>/" method="POST">
+                <button type="submit" class="btn btn-danger"><b>Delete this Log</b></button>
+            </form>
+        </div>
+        <div class="row mt-5">
+            <% if(images.length !=0) {%> 
+                <% images.forEach(img=> { %>
+                    <div class="col-md-3 m-lg-0 m-3">
+                        <img src="<%= img.url %>" alt="" class="img-thumbnail" style="width: 100%; height: 250px;">
+                    </div>
+                <% }) %>
+            <% } %> 
+        </div>
+    </div>
+</body>
+</html>

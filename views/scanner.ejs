@@ -1,0 +1,56 @@
+<html>
+<head>
+  	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+	<title>Qrcode Scanner</title>
+	<link rel="shortcut icon" href="img/icon.PNG" type="image/x-icon">
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<script type="text/javascript" src="/js/qrcode.js"></script>
+	<script type="text/javascript" src="/js/qr.js"></script>
+	<script type="text/javascript" src="/js/popper.min.js"></script>
+	<script type="text/javascript" src="/js/jquery.min.js"></script>
+	<script type="text/javascript" src="/js/bootstrap.min.js"></script>
+	<link href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@1,300&display=swap" rel="stylesheet">
+	<style type="text/css">
+		.box{
+		  box-shadow:0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+		}
+		#v{
+			width: 100%;
+		}
+	</style>
+</head>
+<body>
+	<nav class="navbar justify-content-center bg-dark text-white">
+    		<h4><i class="fa fa-qrcode"></i>&nbsp;Qrcode Scanner</h4>
+    </nav>
+    <div class="alert alert-danger text-center"><b>Note: Don't forgot to close the window after use!!!</b></div>
+    <br/>
+    <div id="webcamimg" onclick="setwebcam()"></div>
+    <div id="qrimg" onclick="setimg()"></div>
+    <div class="container">
+		<div id="main" class="d-flex justify-content-center">
+			<div id="mainbody">
+				<div id="outdiv">
+				</div>
+				
+			</div>
+			<canvas id="qr-canvas"></canvas>
+		</div>
+		<br/>
+		<div class="text-center"><button class="btn btn-success">Scan Another Qrcode</button></div><br/>
+		<div id="result"  class="box text-center p-2"></div>
+	</div>
+	<script type="text/javascript">
+		load();
+		$('#qr-canvas').hide();
+		$('#result').hide();
+		$('.btn').hide();
+		$('.btn').click(function()
+		{
+			window.location.reload();
+		});
+	</script>
+</body>
+
+</html>

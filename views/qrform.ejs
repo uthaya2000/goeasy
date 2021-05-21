@@ -1,0 +1,35 @@
+<%- include('partials/header.ejs') %> 
+    <div class="container" id="admin-home">
+        <div class="row">
+            <div class="col-md-4 mt-5">
+                <div class="d-flex justify-content-center">
+                   
+                    <form action="/gen" method="POST">
+                        <h3>QR Generetor</h3>
+                        <div class="mb-3 mt-3">
+                            <label for="exampleInputEmail1" class="form-label">Cycle ID</label>
+                            <input type="text" class="form-control" id="exampleInputEmail1" name="cycleid">
+                        </div>
+                        <div class="d-grid">
+                            <button type="submit" class="btn btn-dark btn-block">Submit</button>
+                        </div>
+                        
+                    </form>
+                </div>
+                
+            </div>
+            <div class="col-md-8">
+                <% if(url && id){ %>
+                    <div class="mt-lg-5 mt-5 d-flex justify-content-center">
+                        <!-- <h3>QR code</h3> -->
+                        <img src="<%= url %> " alt="QRcode">
+                    </div>
+                    <div class="mt-lg-3 mt-5 d-flex justify-content-center">
+                        <p><%= id %> </p>
+                    </div>
+                <% } %> 
+            </div>
+        </div>
+    </div>
+    
+<%- include('partials/footer.ejs') %> 

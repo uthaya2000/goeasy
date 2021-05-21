@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <!-- googleapis -->
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@1,300&display=swap" rel="stylesheet">
+
+    <!-- FontAwesome icon link -->
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+
+    <title>Rental Cycles</title>
+    <style>
+        #icon {
+            color: white;
+            font-size: 30px;
+        }
+        body{
+            font-family: 'Fira Sans', sans-serif;
+            background-color: rgba(142, 243, 218,.5);
+        }
+        .bounce{
+            font-size: 80px;
+            color: black;
+            bottom: 50px;
+            right: 50px;
+            position: absolute;
+            text-shadow: 2px 2px black;
+            animation-duration: 2s;
+            animation-iteration-count: infinite;
+            transform-origin: bottom;
+            animation-name: bounce;
+            animation-timing-function: ease;
+        }   
+        @keyframes bounce {
+            0%   { transform: scale(1,1)    translateY(0); }
+            10%  { transform: scale(1.1,.9) translateY(0); }
+            30%  { transform: scale(.9,1.1) translateY(-100px); }
+            50%  { transform: scale(1,1)    translateY(0); }
+            57%  { transform: scale(1,1)    translateY(-7px); }
+            64%  { transform: scale(1,1)    translateY(0); }
+            100% { transform: scale(1,1)    translateY(0); }
+        } 
+       
+        .figure-caption{
+            color: black;
+            font-size: medium;
+        }
+        .step{
+            background-color:rgba(243, 194, 250, 0.4) ;
+            border:1px solid rgb(142, 243, 218);
+            color:white;
+        }
+        .d-flex{
+            padding-top: 10px;
+        }
+        #section2 .card{
+            width: 400px;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="/">
+            <i id='icon' class='bx bx-cycling'></i>
+            Rental Cycle
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+    
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/contact">Contact</a>
+                </li>
+                <% if(curuser.isAdmin){%> 
+                    <li class="nav-item">
+                        <a class="nav-link" href="/generetor">Admin Controls</a>
+                    </li>
+                <% } %> 
+                <li class="nav-item">
+                    <a class="nav-link" href="/logout">logout</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+       <div class="container mt-5">
+         <div class="row">
+            
+                <div class=" section1 col-lg-2 ">
+                    <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+                        <a class="nav-link active btn btn-dark mb-3" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true"><b>Step 1</b></a>
+                        <a class="nav-link btn btn-dark mb-3" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="false"><b>Step 2</b></a>
+                        <a class="nav-link btn btn-dark mb-3" id="v-pills-messages-tab" data-toggle="pill" href="#v-pills-messages" role="tab" aria-controls="v-pills-messages" aria-selected="false"><b>Step 3</b></a>
+                        <a class="nav-link btn btn-dark mb-3" id="v-pills-settings-tab" data-toggle="pill" href="#v-pills-settings" role="tab" aria-controls="v-pills-settings" aria-selected="false"><b>Step 3</b></a>
+                      </div>
+                    </div>
+                    <div class=" section1 col-md-4 float-left">
+                      <div class="tab-content" id="v-pills-tabContent">
+                        <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
+                            <img src="img/step1.png" class=" pt-5 mb-3" alt="..." width="300px" height="300px">
+                            <figcaption class="figure-caption"><strong>Click the camerra icon for scanning the qr-code
+                            </strong></figcaption> 
+                        </div>
+                        <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">
+                            <img src="https://www.drivesweden.net/sites/default/files/content/u2175/mobo.jpg" class="mb-3 pt-5" alt="..." width="300px" height="300px">
+                            <figcaption class="figure-caption"><strong>Scan the Qr-code on the cycle</strong></figcaption>
+                        </div>
+                        <div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">
+                            <img src="img/reg.png" class="mb-3 pt-5" alt="..." width="300px" height="300px">
+                            <figcaption class="figure-caption"><strong>Fill the details in above form</strong></figcaption>      
+                        </div>
+                        <div class="tab-pane fade" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab">
+                            <img src="img/pay.png" class="mb-3 pt-5" alt="..." width="300px" height="300px">
+                            <figcaption class="figure-caption"><strong>Use any mode to pay rent</strong></figcaption>   
+                        </div>
+                      </div>
+                    </div>
+            
+               <div class="col-lg   -6 mt-5 p-0" id="section2">
+                   <h4 class="d-flex justify-content-center"><b>Terms & Conditions</b></h4>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">
+                            If you using more time compare to booking time, you are suppose to pay extra rent.
+                        </li>
+                        <li class="list-group-item">You should lock the cycle again while leaving it in the shed.</li>
+                        <li class="list-group-item">
+                            Before leaving the cycle, kindly upload the pic of cycle you used.
+                        </li>
+                        <li class="list-group-item">If you're not upload the image, cycle will not lock.</li>
+                        <li class="list-group-item">We have the logs where we can the images that you have uploaded.</li>
+                    </ul>
+                </div>
+            </div>
+            <a href="/scanner">
+                <i class='bx bxs-camera bounce'></i>
+            </a>
+        </div>
+            
+    </div>   
+
+</body>
+  
+</html>

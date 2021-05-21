@@ -1,0 +1,60 @@
+i{
+    font-size: 20px;
+}
+
+body{
+    font-family: 'Fira Sans', sans-serif;
+    background-color: rgba(142, 243, 218,.5);
+}
+#icon{
+    color: white;
+    font-size: 20px;
+}
+#admin-home p{
+    background-color: white;
+    font-weight: 600;
+}
+
+#signup-body{
+    background: url('https://static8.depositphotos.com/1005931/920/v/950/depositphotos_9202577-stock-illustration-bicyclist-on-the-abstract-background.jpg');
+    background-position: left;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+#signup-form{
+    -moz-box-shadow: 20px 10px 16px #000000;
+    -webkit-box-shadow: 20px 10px 16px #000000;
+    box-shadow: 10px 10px 16px #000000;
+}
+
+#rent img{
+    width: 100%;
+}
+
+
+#bodyhome{
+    background-color: #000000;
+    color: white;
+}
+
+/* extra page */
+
+#extra{
+    border-radius: 10px;
+    border: 2px solid rgb(10, 10, 10, 0.5);
+    background-color: azure;
+}
+
+#extra-body{
+    background-image: url('https://wallpaperaccess.com/full/333333.jpg');
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-position: center top;
+}
+
+
+#upload-body{
+    background-color: #000000;
+    color: white;
+}
+

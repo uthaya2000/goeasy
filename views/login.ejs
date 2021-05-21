@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@1,300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/css/login.css">
+     
+    <style>
+        .radio{
+            padding:10px;
+            margin-bottom: 10px;
+        }
+        .tab1{ 
+            display: inline-block;
+            margin-left:10%;
+        } 
+    </style>
+</head>
+
+<body>
+    <% if(alert && alert.length!=0){ %>
+        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+            <%= alert %> 
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+   <% } %> 
+    <div class="container m-0 p-0">
+        <div class="position-relative bg">
+            <img src="img/orange.svg" class="position-absolute">
+            <img src="img/black.svg" class="position-absolute">
+            <img src="img/blue.svg" class="position-absolute"
+                style="
+                right: -13px;top:23px;
+            ">
+        </div>
+
+        <div class="row ml-4 mt-4 pl-2 pt-3 position-relative">
+            <i class="fa fa-angle-left"></i>
+        </div>
+
+        <div class="row mt-5 mb-1 ml-2 pt-4 pb-1">
+            <div class="col-6">
+                <span class="note">Rental Cycles</span>
+</div>
+			
+        </div>
+        <form action="/login" method="POST">        
+            <div class="row my-5 pt-5 mx-3">
+                <div class="col-12 d-flex flex-column">
+                    <input type="text" placeholder="Email or username" class="py-3 mb-3" name="email" required>
+                    <input type="password" placeholder="Password" class="py-2" name="password" required>
+				</div>
+            </div>
+            <!-- <div class="container-fluid radio ml-4">
+                <input type="radio" onclick="javascript:yesnoCheck();" name="yesno" id="yesCheck"> Admin
+                <span class="tab1"></span>
+			    <input type="radio" onclick="javascript:yesnoCheck();" name="yesno" id="noCheck"> User<br>
+                <div id="ifYes" style="visibility:hidden; margin-top:20px;">
+                    <input type='text' id='yes' name='yes'placeholder="Admin Password">
+                </div>
+            </div> -->
+            <div class="row d-flex justify-content-between align-items-center mx-4 px-2" id="signin">
+                <span class="big">Sign In</span>
+                <div class="sign-in-btn d-flex justify-content-center align-items-center">
+                    <button type="submit"> <i class="fa fa-long-arrow-right"></i></a>
+                </div>
+            </div>
+        </form>
+            <div class="row d-flex justify-content-between align-items-center mx-4 px-2 mt-5">
+                <a href="/signup" class="underline">Sign Up</a>
+                <a href="/forget" class="underline">Forgot Password</a>
+            </div>
+    </div>
+    
+<script>
+function yesnoCheck() {
+    if (document.getElementById('yesCheck').checked) {
+        document.getElementById('ifYes').style.visibility = 'visible';
+    }
+    else document.getElementById('ifYes').style.visibility = 'hidden';
+
+}</script>
+</body>
+</html>

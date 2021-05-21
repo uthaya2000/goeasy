@@ -1,0 +1,34 @@
+{
+  "name": "goeasy",
+  "version": "1.0.0",
+  "description": "User app for QR scanning, payment gateway, etc",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "author": "Uthaya",
+  "license": "ISC",
+  "dependencies": {
+    "async": "^3.2.0",
+    "cloudinary": "^1.25.1",
+    "connect-flash": "^0.1.1",
+    "crypto": "^1.0.1",
+    "ejs": "^3.1.6",
+    "express": "^4.17.1",
+    "express-session": "^1.17.1",
+    "express-validator": "^6.11.0",
+    "mongoose": "^5.12.5",
+    "multer": "^1.4.2",
+    "multer-storage-cloudinary": "^4.0.0",
+    "nodemailer": "^6.6.0",
+    "passport": "^0.4.1",
+    "passport-local": "^1.0.0",
+    "passport-local-mongoose": "^6.1.0",
+    "qrcode": "^1.4.4",
+    "razorpay": "^2.0.6"
+  },
+  "devDependencies": {
+    "dotenv": "^9.0.1"
+  }
+}
