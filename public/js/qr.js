@@ -105,6 +105,7 @@ function htmlEntities(str) {
 //const axios = require('axios')
 function read(a)
 {
+    console.log(a);
     var url = window.location.href
     var domain = url.replace('http://','').replace('https://','').split(/[/?#]/)[0];
     location.replace(`http://${domain}/afterscanning/${a}`)

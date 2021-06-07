@@ -14,6 +14,7 @@ const mongoose = require('mongoose');
 const passport = require('passport');
 const LocalStrategy = require('passport-local').Strategy;
 const User = require('./models/user')
+
 //DB connection
 mongoose.connect('mongodb://localhost:27017/rentalCycles', {useUnifiedTopology: true , useNewUrlParser: true, useCreateIndex: true})
     .then(()=>{

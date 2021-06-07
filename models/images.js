@@ -3,7 +3,6 @@ const mongoose = require('mongoose');
 const image_schema = new mongoose.Schema({
     cycle_id: {
         type: String,
-        unique: true
     },
     images: [
         {
